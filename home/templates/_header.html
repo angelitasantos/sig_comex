@@ -1,0 +1,65 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'home:home' %}">NOME EMPRESA</a>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Alternar navegação">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="menuDropdown" role="button" 
+                        data-bs-toggle="dropdown" aria-expanded="false">OPCAO 1</a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="menuDropdown">
+                        <li><a class="dropdown-item" href="{% url 'home:home' %}">SUBOPCAO 1</a></li>
+                        <li><a class="dropdown-item" href="{% url 'home:home' %}">SUBOPCAO 2</a></li>
+                        <li><a class="dropdown-item" href="{% url 'home:home' %}">SUBOPCAO 3</a></li>
+                        <li><a class="dropdown-item" href="{% url 'home:home' %}">SUBOPCAO 4</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="menuDropdown" role="button" 
+                        data-bs-toggle="dropdown" aria-expanded="false">OPCAO 2</a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="menuDropdown">
+                        <li><a class="dropdown-item" href="{% url 'home:home' %}">SUBOPCAO 1</a></li>
+                        <li><a class="dropdown-item" href="{% url 'home:home' %}">SUBOPCAO 2</a></li>
+                        <li><a class="dropdown-item" href="{% url 'home:home' %}">SUBOPCAO 3</a></li>
+                        <li><a class="dropdown-item" href="{% url 'home:home' %}">SUBOPCAO 4</a></li>
+                    </ul>
+                </li>
+        
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="menuDropdown" role="button" 
+                        data-bs-toggle="dropdown" aria-expanded="false">OPCAO 3</a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="menuDropdown">
+                        <li><a class="dropdown-item" href="{% url 'home:home' %}">SUBOPCAO 1</a></li>
+                        <li><a class="dropdown-item" href="{% url 'home:home' %}">SUBOPCAO 2</a></li>
+                        <li><a class="dropdown-item" href="{% url 'home:home' %}">SUBOPCAO 3</a></li>
+                        <li><a class="dropdown-item" href="{% url 'home:home' %}">SUBOPCAO 4</a></li>
+                    </ul>
+                </li>
+        
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="menuDropdown" role="button" 
+                        data-bs-toggle="dropdown" aria-expanded="false">OPCAO 4</a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="menuDropdown">
+                        <li><a class="dropdown-item" href="{% url 'home:home' %}">SUBOPCAO 1</a></li>
+                        <li><a class="dropdown-item" href="{% url 'home:home' %}">SUBOPCAO 2</a></li>
+                        <li><a class="dropdown-item" href="{% url 'home:home' %}">SUBOPCAO 3</a></li>
+                        <li><a class="dropdown-item" href="{% url 'home:home' %}">SUBOPCAO 4</a></li>
+                    </ul>
+                </li>
+                
+            </ul>
+
+        </div>
+    </div>
+
+</nav>
