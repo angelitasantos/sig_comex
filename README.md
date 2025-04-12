@@ -15,6 +15,7 @@ Projeto em Python, Django e PostgreSQL, front-end em Bootstrap
     - pip install openpyxl
     - pip install pillow
     - pip install pytest pytest-django
+    - pip install python-dotenv
 
 #### comandos
     - django-admin startproject sigcomex .
