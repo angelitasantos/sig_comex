@@ -27,10 +27,10 @@ Projeto em Python, Django e PostgreSQL, front-end em Bootstrap
     - python manage.py createsuperuser
 
 #### documentação
-    - [Python](https://docs.python.org/3/)
-    - [Django](https://docs.djangoproject.com/en/5.2/)
-    - [Class Base View](https://docs.djangoproject.com/en/5.2/topics/class-based-views/)
-    - [Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
-    - [JQuery](https://cdnjs.com/libraries/jquery)
-    - [Font Awesome](https://cdnjs.com/libraries/font-awesome)
-    - [Google Fonts](https://fonts.google.com/selection/embed)
+    [Python](https://docs.python.org/3/)
+    [Django](https://docs.djangoproject.com/en/5.2/)
+    [Class Base View](https://docs.djangoproject.com/en/5.2/topics/class-based-views/)
+    [Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
+    [JQuery](https://cdnjs.com/libraries/jquery)
+    [Font Awesome](https://cdnjs.com/libraries/font-awesome)
+    [Google Fonts](https://fonts.google.com/selection/embed)
