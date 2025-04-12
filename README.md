@@ -10,6 +10,7 @@ Projeto em Python, Django e PostgreSQL, front-end em Bootstrap
     - deactivate
 
 #### bibliotecas
+    - python.exe -m pip install --upgrade pip
     - pip install django
     - pip install pandas
     - pip install openpyxl
