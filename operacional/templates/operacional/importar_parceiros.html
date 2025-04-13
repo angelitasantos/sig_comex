@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+<main class="container p-4 shadow-lg p-3 mb-5 bg-white rounded my-5">
+
+    <h2 class="text-center mb-3">Importar Dados</h2>
+    {% include 'operacional/_breadcrumb.html' %}
+
+    <section class="my-5">
+        <h4>Importar Dados Parceiros</h4>
+        {% include '_messages.html' %}
+
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-sm btn-success px-5">Importar</button>
+        </form>
+
+    </section>
+
+    <h4>Lista de Parceiros</h4>
+
+    <table class="table table-responsive table-hover table-sm">
+
+        <thead class="table-dark">
+
+            <tr class="small">
+                <th>ID</th>
+                <th>Status</th>
+                <th>CNPJ</th>
+                <th>Insc Estadual</th>
+                <th>Nome Fantasia</th>
+                <th>Razão Social</th>
+            </tr>
+
+        </thead>
+
+        <tbody class="table-sm">
+
+            {% for parceiro in parceiros %}
+            <tr class="small">
+                <td>{{ parceiro.id }}</td>
+                <td>{{ parceiro.status }}</td>
+                <td>{{ parceiro.cnpj }}</td>
+                <td>{{ parceiro.insc_est }}</td>
+                <td>{{ parceiro.nome }}</td>
+                <td>{{ parceiro.razao_social }}</td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</main>
+{% endblock %}

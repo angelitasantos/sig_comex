@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+<main class="container p-4 shadow-lg p-3 mb-5 bg-white rounded my-5">
+
+    <h2 class="text-center mb-3">Importar Dados</h2>
+    {% include 'operacional/_breadcrumb.html' %}
+
+    <div class="container my-5">
+
+        <div class="row">
+
+            <div class="col-sm-3">
+                <div class="card text-center">
+                    <div class="card-header">
+                        Importar Dados
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Parceiros</h5>
+                        <a href="{% url 'operacional:importar_parceiros' %}"
+                            class="btn btn-sm btn-success mx-3 px-5">Importar</a>
+                    </div>
+                    <div class="card-footer text-muted">
+                        Arquivo Modelo
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+                <div class="card text-center">
+                    <div class="card-header">
+                        Importar Dados
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Parceiros Alterados</h5>
+                        <a href="{% url 'operacional:importar_parceiros_alterados' %}"
+                            class="btn btn-sm btn-success mx-3 px-5">Importar</a>
+                    </div>
+                    <div class="card-footer text-muted">
+                        Arquivo Modelo
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+{% endblock %}
