@@ -1,0 +1,163 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+<main class="container p-4 shadow-lg p-3 mb-5 bg-white rounded my-5">
+
+    <h2 class="text-center mb-3">Categorias</h2>
+    {% include 'parceiros/_breadcrumb.html' %}
+    {% include '_messages.html' %}
+
+    <button data-bs-toggle="modal" data-bs-target="#createModal" class="btn btn-sm btn-primary btn-sm mb-3">CADASTRAR NOVA CATEGORIA</button>
+
+    <div class="modal fade" id="createModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="createModal" aria-hidden="true">
+
+        <div class="modal-dialog">
+
+            <form method="POST">
+            {% csrf_token %}
+
+                <div class="modal-content">
+
+                    <div class="modal-header bg-primary text-white">
+                        <h5 class="modal-title">CRIAR NOVA CATEGORIA</h5>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="nome" class="fw-bold text-uppercase">Nome</label>
+                            {{ form.nome }}
+                        </div>
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-sm btn-warning px-5 mx-5" data-bs-dismiss="modal">CANCELAR</button>
+                        <button type="submit" class="btn btn-sm btn-success px-5" name="create">ADICIONAR</button>
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <table class="table table-responsive table-hover table-sm">
+
+        <thead class="table-dark">
+
+            <tr class="small text-uppercase">
+                <th>ID</th>
+                <th>Status</th>
+                <th>Nome</th>
+                <th class="text-center">Ações</th>
+            </tr>
+        
+        </thead>
+
+        <tbody class="table-sm">
+
+            {% for categoria in categorias %}
+            <tr class="small">
+                <td class="align-middle" style="width:60px">{{ categoria.id }}</td>
+                <td class="align-middle" style="width:60px">{{ categoria.status.nome }}</td>
+                <td class="align-middle">{{ categoria.nome }}</td>
+                <td class="align-middle" style="width:240px" class="text-center">
+                    <a href="" data-bs-toggle="modal" data-bs-target="#updateModal_{{ categoria.id }}" class="btn btn-sm btn-warning px-4 mx-2">ALTERAR</a>
+                    <a href="" data-bs-toggle="modal" data-bs-target="#deletModal_{{ categoria.id }}" class="btn btn-sm btn-danger px-4">EXCLUIR</a>
+                </td>
+            </tr>
+
+            <!-- update modal -->
+            <div class="modal fade" id="updateModal_{{ categoria.id }}" data-bs-backdrop="static"
+                data-bs-keyboard="false" tabindex="-1" aria-labelledby="updateModal_{{ categoria.id }}Label" aria-hidden="true">
+                <div class="modal-dialog">
+
+                    <form action="" method="post">
+                        {% csrf_token %}
+
+                        <div class="modal-content">
+
+                            <div class="modal-header bg-warning text-white">
+                                <h5 class="modal-title" id="updateModal_{{ categoria.id }}Label">ALTERAR CATEGORIA</h5>
+                            </div>
+
+                            <div class="modal-body row">
+
+                                <input type="hidden" name="id" value="{{ categoria.id }}">
+
+                                <div class="col-sm-9 mt-3 mb-4">
+                                    <label for="nome" class="fw-bold text-uppercase">Nome</label>
+                                    <input required type="text" value="{{ categoria.nome }}" name="nome" 
+                                      class="form-control form-control-sm" autocomplete="off">
+                                </div>
+
+                                <div class="col-sm-3 mt-3 mb-4">
+                                    <span class="fw-bold text-uppercase">Status</span>
+                                    <select class=" form-control form-control-sm" name="status_id">
+                                        <option value="{{ categoria.status.id }}">{{ categoria.status.nome }}</option>
+                                        {% for ativo in ativos %}
+                                            <option value="{{ ativo.id }}">{{ ativo.nome }}
+                                            </option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-sm btn-warning px-5 mx-5" data-bs-dismiss="modal">CANCELAR</button>
+                                <button type="submit" class="btn btn-sm btn-success px-5" name="update">ALTERAR</button>
+                            </div>
+
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+            <!-- delete modal -->
+            <div class="modal fade" id="deletModal_{{ categoria.id }}" data-bs-backdrop="static"
+                data-bs-keyboard="false" tabindex="-1" aria-labelledby="deletModal_{{ categoria.id }}Label" aria-hidden="true">
+                <div class="modal-dialog">
+
+                    <form action="" method="post">
+                        {% csrf_token %}
+
+                        <input type="hidden" name="id" value="{{ categoria.id }}">
+
+                        <div class="modal-content">
+
+                            <div class="modal-header bg-danger text-white">
+                                <h5 class="modal-title">EXCLUIR CATEGORIA</h5>
+                            </div>
+
+                            <div class="modal-body">
+                                <p class="mt-3">Você tem certeza que deseja deletar a categoria:</p>
+                                <p class="fw-bold">{{ categoria.nome }}</p>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-sm btn-warning px-5 mx-5" data-bs-dismiss="modal">CANCELAR</button>
+                                <button type="submit" class="btn btn-sm btn-danger px-5" name="delete">EXCLUIR</button>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+    <div class="mt-5"></div>
+
+</main>
+{% endblock %}
